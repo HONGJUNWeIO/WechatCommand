@@ -5,14 +5,18 @@ from datetime import datetime, date
 from zhdate import ZhDate
 import sys
 import os
- 
- 
+
+
+---
+title: Wechat
+date: 20240401
+--- 
+# 获取随机颜色
+
 def get_color():
-    # 获取随机颜色
-    get_colors = lambda n: list(map(lambda i: "#" + "%06x" % random.randint(0, 0xFFFFFF), range(n)))
-    color_list = get_colors(100)
-    return random.choice(color_list)
- 
+get_color = lambda n: list(map(lambda i: "#" + "%06x" % random.randint(0, 0xFFFFFF), range(n)))
+ color_list = get_colors(100)
+ return random.choice(color_list)
  
 def get_access_token():
     # appId
@@ -29,8 +33,6 @@ def get_access_token():
         sys.exit(1)
     # print(access_token)
     return access_token
- 
- 
 def get_weather(region):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
@@ -231,3 +233,4 @@ if __name__ == "__main__":
     for user in users:
         send_message(user, accessToken, region, weather, temp, wind_dir, note_ch, note_en)
     os.system("pause")
+ 
